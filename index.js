@@ -1,4 +1,10 @@
-const puppeteer = require('puppeteer-core');
+// const puppeteer = require('puppeteer-core');
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+
+// 启用 Stealth 插件
+puppeteer.use(StealthPlugin());
+
 const http = require('./http');
 const utils = require('./utils');
 const pptr = require('./pptr');
@@ -10,7 +16,7 @@ const executablePath = process.platform === 'darwin' ?
 
 const options = {
     args: [
-        '--user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"',
+        '--user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"',
         // process.platform === 'darwin' ? '--proxy-server=127.0.0.1:1087' :  '--proxy-server=172.29.0.41:443'
     ],
     headless: false,
